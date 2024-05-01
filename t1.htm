@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <!-- jquery-->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+
+    <!--boostrap scripts-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+
+    <!--custom scripts-->
+    <script src="./assets/js/functions.js"></script>
+
+    <title>T1 - Programação Frontend</title>
+</head>
+
+<body>
+
+    <div id="main" class="container">
+        <div class="card-main">
+            <div class="row text-center bloco">
+                <div class="col pb-3">
+                    <span class="text-body-secondary">Escute nosso Jingle</span>
+                </div>
+            </div>
+            <div class="row align-items-center d-flex pb-3 bloco">
+                <div class="col">
+                    <button class="buttonAction" id="buttonPlay" name="buttonPlay" data-state="play" tabindex="0"
+                        type="button" aria-label="play/pause">
+                        <svg id="svgIcon" focusable="false" aria-hidden="true" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="col">
+                    <table class="d-flex justify-content-start" style="width: 100%;">
+                        <tr>
+                            <td class="py-2" style="text-align: right;">
+                                <svg id="svgIcon" viewBox="0 0 24 24">
+                                    <path
+                                        d="M3 9v6h4l5 5V4L7 9zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02M14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77">
+                                    </path>
+                                </svg>
+                            </td>
+                            <td class="py-2" style="width : 55px;">
+                                <div id="jingleVolume"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="row pt-2 align-items-center bloco">
+                <div class="col align-center d-flex justify-content-center">
+                    <div id="jingleProgressbar"></div>
+                </div>
+                <div class="col">
+                    <div class="mark small">
+                        <span id="currentTimeJingle">00:00</span>/<span id="totalTimeJingle">00:10</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="player"></div>
+    </div>
+</body>
+
+</html>
