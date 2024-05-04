@@ -3,7 +3,7 @@
  * Essa função alterna entre o estado de play e pause do jingle.
  * Assim como os ícones vínculados
  * 
- * @param {*} barClick 
+ * @param {*} barClick -> se clicar na barra de progresso
  */
 function activateJingle(barClick = false) {
 
@@ -134,17 +134,22 @@ $(document).ready(function () {
 /**
  * Executa ao iniciar o elemento áudio
  * @param {*} fileName 
- * @param {*} myVolume 
+ * @param {*} newVolume 
  */
-function playAudio(fileName, myVolume) {
+function playAudio(fileName, newVolume) {
     myJingle.src = fileName;
     myJingle.setAttribute('muted', 'true')
-    setVolume(myVolume);
+    setVolume(newVolume);
 
     /*Executa o evento abaixo após o primeiro click em tela. Os navegadores mais atuais
-    estão bloqueando a execução automática de áudio/vídeo, então o bloco abaixo ativa o áudio 
+    estão bloqueando a execução automática de áudio, então o bloco abaixo ativa o áudio 
     após a primeira interação do usuário. */
     myJingle.addEventListener("canplaythrough", () => {
+
+        /*Não vai conseguir executar, pois o navegador irá bloquear,
+        então cria um event de click no catch da promise e executa o play()
+        quando o evento de click for executado.
+        */
         myJingle.play().catch(e => {
             window.addEventListener('click', () => {
                 myJingle.play()
@@ -155,6 +160,6 @@ function playAudio(fileName, myVolume) {
 }
 
 //para definir o volume do áudio ([0...1])
-function setVolume(myVolume) {
-    myJingle.volume = myVolume;
+function setVolume(newVolume) {
+    myJingle.volume = newVolume;
 }
